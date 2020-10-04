@@ -1,42 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="preset.css">
   <style>
     label[for="upload"] {
       display: flex;
       align-items: center;
     }
+
     #custom-txt {
       display: flex;
       flex-direction: column;
-       margin-top: 10px;
-       margin-bottom: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
+
     .btn {
       display: flex;
       align-items: center;
       color: blue;
       border: 1px solid blue;
-      box-shadow: 0 1px 14px rgba(0,0,0,0.25);
+      box-shadow: 0 1px 14px rgba(0, 0, 0, 0.25);
       padding: 10px 10px;
     }
+
     .button {
       margin-left: 5px;
     }
   </style>
 </head>
+
 <body>
+  <h1>First Gen Pokemon Chart</h1>
+  <table border="1">
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Evolves Into</th>
+    </tr>
+    <tr>
+      <td><img src="https://pm1.narvii.com/6778/d24c6fd43bf58b063572060e2c9f7c88cde8f5c0v2_00.jpg" alt=""> </td>
+      <td>Bulbasaur</td>
+      <td>Grass/Poison</td>
+      <td><a href="">Ivysaur</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://i.pinimg.com/originals/e7/0e/d0/e70ed0b54f9230c56c2e3bd2958d68a4.jpg" alt=""> </td>
+      <td>Charmender</td>
+      <td>Fire</td>
+      <td><a href="">Charmeleon</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://cdn.bulbagarden.net/upload/thumb/7/79/Squirtle_SSBU.png/250px-Squirtle_SSBU.png" alt="">
+      </td>
+      <td>Squirtle</td>
+      <td>water</td>
+      <td><a href="">Wartortle</a></td>
+    </tr>
+  </table>
   <input type="file" id="upload" hidden multiple>
   <label for="upload">
     <div class="btn">
       <span class="material-icons" style="color: blue;">
-      perm_media
+        perm_media
       </span>
       <span class="button">Add Image</span>
     </div>
@@ -49,27 +81,28 @@
   </div>
 
   <script>
-        let x = document.getElementById("upload");
-        let y = document.getElementById("custom-txt");
-        let display = document.querySelector(".img-display");
-        x.addEventListener("change", function (event) {
-            let uploadedFileName = event.target.files;
-            if(uploadedFileName) {
-            document.querySelector(".def").style.display = "none";
-            for(let i = 0; i < uploadedFileName.length; i++) {
-              let e = document.createElement("span");
-              let txt = document.createTextNode(uploadedFileName[i].name);
-              e.appendChild(txt);
-              y.appendChild(e);
-              let src = URL.createObjectURL(uploadedFileName[i]);
-              let img = document.createElement("img");
-              img.setAttribute("src",src);
-              img.setAttribute("width",200);
-              display.appendChild(img);
-            }
-          }
-        });
+    let x = document.getElementById("upload");
+    let y = document.getElementById("custom-txt");
+    let display = document.querySelector(".img-display");
+    x.addEventListener("change", function (event) {
+      let uploadedFileName = event.target.files;
+      if (uploadedFileName) {
+        document.querySelector(".def").style.display = "none";
+        for (let i = 0; i < uploadedFileName.length; i++) {
+          let e = document.createElement("span");
+          let txt = document.createTextNode(uploadedFileName[i].name);
+          e.appendChild(txt);
+          y.appendChild(e);
+          let src = URL.createObjectURL(uploadedFileName[i]);
+          let img = document.createElement("img");
+          img.setAttribute("src", src);
+          img.setAttribute("width", 200);
+          display.appendChild(img);
+        }
+      }
+    });
 
   </script>
 </body>
+
 </html>
